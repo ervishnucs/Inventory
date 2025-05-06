@@ -39,10 +39,10 @@ View, add, edit, and delete warehouse locations.
 
 ### 🔁 Product Movements
 Track product transfers between warehouse locations.
-![Movements](images/addM.png)
+![Movements](images/History.png)
 
 ### ➕ Add Movement
-![Add Movement](images/History.png)
+![Add Movement](images/addM.png)
 
 ### ✏️ Edit Movement
 ![Edit Movement](images/editM.png)
