@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Home</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/index.css') }}"
+    />
+  </head>
+  <body>
+    <h1>Warehouse Inventory</h1>
+    <ul>
+      <li><a href="/"> Home</a></li>
+      <li><a href="/products"> Products</a></li>
+      <li><a href="/locations">Locations</a></li>
+      <li><a href="/report">Inventory Report</a></li>
+    </ul>
+    <br />
+    <h2>Dashboard</h2>
+
+    <div class="icon-container">
+      <a href="/products">
+        <img
+          src="{{ url_for('static', filename='products.jpg') }}"
+          class="icon-img"
+          alt="Products"
+        />
+      </a>
+      <a href="/locations">
+        <img
+          src="{{ url_for('static', filename='location.jpg') }}"
+          class="icon-img"
+          alt="Locations"
+        />
+      </a>
+
+      <a href="/movements">
+        <img
+          src="{{ url_for('static', filename='movement.webp') }}"
+          class="icon-img"
+          alt="Movements"
+        />
+      </a>
+    </div>
+    <br />
+    <footer>
+      <p>&copy; 2025 Warehouse Inventory System. All rights reserved.</p>
+    </footer>
+  </body>
+</html>

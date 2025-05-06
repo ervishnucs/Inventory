@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Add Product Movement</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/index.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/EditAdd.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <a href="{{ url_for('view_movements') }}" class="close-icon"
+        ><i class="fas fa-times"></i
+      ></a>
+      <h1>Add Product Movement</h1>
+      <form method="post">
+        <label>Movement Type:</label><br />
+        <select
+          name="movement_type"
+          id="movement_type"
+          onchange="toggleFields()"
+          required
+        >
+          <option value="move" selected>Move</option>
+          <option value="purchase">Purchase</option>
+          <option value="sell">Sell</option>
+        </select>
+        <br /><br />
+
+        <label>Product:</label><br />
+        <select name="product_id" required>
+          {% for product in products %}
+          <option value="{{ product.product_id }}">
+            {{ product.product_name }}
+          </option>
+          {% endfor %}</select
+        ><br /><br />
+
+        <div id="from_location_div">
+          <label>From Location:</label><br />
+          <select name="from_location">
+            <option value="">-- None --</option>
+            {% for location in locations %}
+            <option value="{{ location.location_id }}">
+              {{ location.location_name }}
+            </option>
+            {% endfor %}</select
+          ><br /><br />
+        </div>
+
+        <div id="to_location_div">
+          <label>To Location:</label><br />
+          <select name="to_location">
+            <option value="">-- None --</option>
+            {% for location in locations %}
+            <option value="{{ location.location_id }}">
+              {{ location.location_name }}
+            </option>
+            {% endfor %}</select
+          ><br /><br />
+        </div>
+
+        <label>Quantity:</label><br />
+        <input type="number" name="qty" required /><br /><br />
+
+        <input type="submit" value="Add Movement" />
+      </form>
+    </div>
+
+    <script>
+      function toggleFields() {
+        const type = document.getElementById("movement_type").value;
+        const fromDiv = document.getElementById("from_location_div");
+        const toDiv = document.getElementById("to_location_div");
+
+        if (type === "purchase") {
+          fromDiv.style.display = "none";
+          toDiv.style.display = "block";
+        } else if (type === "sell") {
+          fromDiv.style.display = "block";
+          toDiv.style.display = "none";
+        } else {
+          fromDiv.style.display = "block";
+          toDiv.style.display = "block";
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", toggleFields);
+    </script>
+  </body>
+</html>

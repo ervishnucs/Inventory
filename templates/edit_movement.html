@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Edit Product Movement</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/EditAdd.css') }}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}" />
+</head>
+<body>
+  <div class="container">
+    <a href="{{ url_for('view_movements') }}" class="close-icon">
+      <i class="fas fa-times"></i>
+    </a>
+    <h1>Edit Product Movement</h1>
+    <form method="post">
+      <label for="movement_id">Movement ID (cannot change):</label>
+      <input type="text" id="movement_id" name="movement_id" value="{{ movement.movement_id }}" readonly />
+
+      <label for="product_id">Product:</label>
+      <select name="product_id" id="product_id">
+        {% for product in products %}
+          <option value="{{ product.product_id }}" {% if product.product_id == movement.product_id %}selected{% endif %}>
+            {{ product.product_name }}
+          </option>
+        {% endfor %}
+      </select>
+
+      <label for="from_location">From Location:</label>
+      <select name="from_location" id="from_location">
+        <option value="">-- None --</option>
+        {% for location in locations %}
+          <option value="{{ location.location_id }}" {% if location.location_id == movement.from_location %}selected{% endif %}>
+            {{ location.location_name }}
+          </option>
+        {% endfor %}
+      </select>
+
+      <label for="to_location">To Location:</label>
+      <select name="to_location" id="to_location">
+        <option value="">-- None --</option>
+        {% for location in locations %}
+          <option value="{{ location.location_id }}" {% if location.location_id == movement.to_location %}selected{% endif %}>
+            {{ location.location_name }}
+          </option>
+        {% endfor %}
+      </select>
+
+      <label for="qty">Quantity:</label>
+      <input type="number" id="qty" name="qty" value="{{ movement.qty }}" required min="1" />
+
+      <input type="submit" value="Save Changes" />
+    </form>
+  </div>
+</body>
+</html>

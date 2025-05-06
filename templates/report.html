@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Inventory Report</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/index.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/EditAdd.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <h1 style="display: inline-block">Inventory Report</h1>
+    <ul>
+      <li><a href="/"> Home</a></li>
+      <li><a href="/products">Products</a></li>
+      <li><a href="/locations">Locations</a></li>
+      <li><a href="/report">Inventory Report</a></li>
+    </ul>
+    <br />
+    <div class="container">
+      <div class="table-header">
+        <a href="/movements" class="watch-history">
+          <i class="fas fa-clock"></i> Watch History
+        </a>
+      </div>
+      <table>
+        <tr>
+          <th>Product</th>
+          <th>Warehouse</th>
+          <th>Qty</th>
+        </tr>
+
+        {% for row in report %}
+        <tr>
+          <td>{{ row.product }}</td>
+          <td>{{ row.warehouse }}</td>
+          <td>{{ row.qty }}</td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+  </body>
+</html>

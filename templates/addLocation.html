@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Add Location</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/index.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/EditAdd.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <a href="{{ url_for('view_locations') }}" class="close-icon"
+        ><i class="fas fa-times"></i
+      ></a>
+      <h2>Add Location</h2>
+      <form method="post">
+        <label for="location_name">Location Name:</label>
+        <input type="text" name="location_name" id="location_name" required />
+
+        <input type="submit" value="Add" />
+      </form>
+    </div>
+  </body>
+</html>

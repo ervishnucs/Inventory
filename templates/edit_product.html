@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Edit Product</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/EditAdd.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/index.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <a href="{{ url_for('view_products') }}" class="close-icon"
+        ><i class="fas fa-times"></i
+      ></a>
+      <h1>Edit Product</h1>
+      <form method="post">
+        <label for="product_id">Product ID (cannot change):</label>
+        <input
+          type="text"
+          name="product_id"
+          id="product_id"
+          value="{{ product.product_id }}"
+          disabled
+        />
+
+        <label for="product_name">Product Name:</label>
+        <input
+          type="text"
+          name="product_name"
+          id="product_name"
+          value="{{ product.product_name }}"
+          required
+        />
+
+        <label for="quantity">Quantity:</label>
+        <input
+          type="number"
+          name="quantity"
+          id="quantity"
+          value="{{ product.quantity }}"
+          required
+          min="1"
+        />
+
+        <input type="submit" value="Save" />
+      </form>
+    </div>
+  </body>
+</html>
