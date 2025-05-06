@@ -42,7 +42,7 @@ Track product transfers between warehouse locations.
 ![Movements](images/addM.png)
 
 ### ➕ Add Movement
-![Add Movement](images/history.png)
+![Add Movement](images/History.png)
 
 ### ✏️ Edit Movement
 ![Edit Movement](images/editM.png)
