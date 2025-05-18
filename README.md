@@ -51,30 +51,3 @@ Track product transfers between warehouse locations.
 View live inventory at each warehouse.
 ![Report](images/inventoryreport.png)
 
-## Database Schema
-
-```sql
-CREATE TABLE Product (
-    product_id INT AUTO_INCREMENT PRIMARY KEY,
-    product_name VARCHAR(255) NOT NULL,
-    quantity INT DEFAULT 0
-);
-
-CREATE TABLE Location (
-    location_id INT AUTO_INCREMENT PRIMARY KEY,
-    location_name VARCHAR(255) NOT NULL
-);
-
-CREATE TABLE ProductMovement (
-    movement_id INT AUTO_INCREMENT PRIMARY KEY,
-    from_location INT,
-    to_location INT,
-    product_id INT,
-    qty INT,
-    timestamp DATETIME,
-    FOREIGN KEY (from_location) REFERENCES Location(location_id),
-    FOREIGN KEY (to_location) REFERENCES Location(location_id),
-    FOREIGN KEY (product_id) REFERENCES Product(product_id)
-);
-
->>>>>>> 5dd87805c95c9903a6c20ee37ba5dcf35edb9e36
