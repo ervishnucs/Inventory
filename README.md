@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 # Warehouse Inventory Management System
 
 A web-based inventory management system built using **Flask** and **MySQL** that allows users to manage products, warehouse locations, stock movements, and generate inventory reports.
